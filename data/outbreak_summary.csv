@@ -1,0 +1,76 @@
+outbreak_id,outbreak_type,condition,county,setting,start_date,end_date,status,total_cases,hospitalizations,deaths,attack_rate,source_identified,investigation_lead,data_quality_score
+OB-2024-001,Foodborne,Norovirus,San Francisco,Workplace,2024-02-24,2024-04-24,Closed,122,21,0,21.5,False,EPI-406,0.61
+OB-2025-002,Vector-borne,West Nile Virus,San Mateo,Long-term Care,2025-05-30,2025-08-08,Active,125,21,1,32.0,True,EPI-625,0.92
+OB-2024-003,Vector-borne,West Nile Virus,Kern,Restaurant,2024-08-05,,Active,185,23,1,34.2,True,EPI-211,0.65
+OB-2026-004,Vaccine-preventable,Measles,Alameda,Childcare,2026-01-07,,Under Investigation,46,7,0,33.4,True,EPI-456,0.81
+OB-2024-005,Respiratory,Influenza,Orange,Long-term Care,2024-02-15,,Closed,33,2,0,15.3,True,EPI-153,0.84
+OB-2025-006,Respiratory,RSV,San Mateo,Workplace,2025-04-18,,Closed,124,8,0,27.0,True,EPI-252,0.8
+OB-2026-007,Vaccine-preventable,Pertussis,Monterey,Workplace,2026-01-11,2026-03-30,Under Investigation,164,11,0,49.3,True,EPI-704,0.89
+OB-2025-008,Vector-borne,West Nile Virus,Santa Barbara,Prison/Jail,2025-06-30,,Closed,148,34,0,48.9,False,EPI-437,0.99
+OB-2024-009,Vector-borne,West Nile Virus,Kern,Healthcare Facility,2024-11-07,2024-11-18,Closed,127,12,0,5.2,False,EPI-535,0.71
+OB-2025-010,Vaccine-preventable,Measles,San Mateo,Healthcare Facility,2025-10-17,2025-12-26,Closed,142,33,0,28.5,True,EPI-689,0.94
+OB-2024-011,Foodborne,Norovirus,Kern,Workplace,2024-01-16,,Under Investigation,149,30,0,19.1,True,EPI-484,0.84
+OB-2025-012,Vaccine-preventable,Pertussis,Santa Clara,Childcare,2025-05-23,2025-08-06,Closed,133,28,1,49.6,True,EPI-731,0.91
+OB-2025-013,Respiratory,Pertussis,Los Angeles,Prison/Jail,2025-11-26,2025-12-25,Closed,132,9,0,6.4,False,EPI-943,0.94
+OB-2025-014,Foodborne,Salmonella,Contra Costa,School,2025-12-28,2026-02-17,Closed,150,22,0,11.3,True,EPI-290,0.66
+OB-2024-015,Foodborne,Hepatitis A,Alameda,Long-term Care,2024-07-25,,Active,152,22,0,34.8,True,EPI-500,0.63
+OB-2025-016,Foodborne,Hepatitis A,Orange,Community Event,2025-10-14,2025-12-23,Closed,44,5,0,9.8,False,EPI-510,0.77
+OB-2024-017,Vector-borne,West Nile Virus,Sacramento,Long-term Care,2024-08-01,,Closed,185,14,0,38.5,False,EPI-279,0.89
+OB-2025-018,Foodborne,Salmonella,San Francisco,Childcare,2025-10-26,2025-11-16,Closed,69,5,0,46.5,True,EPI-559,0.73
+OB-2024-019,Vector-borne,West Nile Virus,Stanislaus,Restaurant,2024-11-05,2024-12-29,Closed,128,22,0,14.7,True,EPI-179,0.81
+OB-2025-020,Vector-borne,West Nile Virus,San Joaquin,Workplace,2025-05-08,2025-07-06,Under Investigation,47,11,0,44.9,False,EPI-344,0.79
+OB-2024-021,Respiratory,Pertussis,San Joaquin,School,2024-01-19,2024-02-21,Closed,18,2,0,21.3,True,EPI-599,0.61
+OB-2026-022,Vaccine-preventable,Pertussis,Orange,Healthcare Facility,2026-01-27,2026-02-06,Under Investigation,122,19,1,41.5,True,EPI-526,1.0
+OB-2024-023,Respiratory,Influenza,Tulare,Community Event,2024-02-12,2024-03-13,Under Investigation,38,6,0,40.5,True,EPI-416,0.68
+OB-2024-024,Vector-borne,West Nile Virus,Fresno,Restaurant,2024-08-21,2024-11-07,Under Investigation,61,7,0,35.3,True,EPI-505,0.85
+OB-2024-025,Vector-borne,West Nile Virus,San Mateo,School,2024-11-21,2025-01-04,Closed,107,25,0,39.1,True,EPI-534,1.0
+OB-2024-026,Vector-borne,West Nile Virus,Santa Clara,Restaurant,2024-06-26,,Under Investigation,158,25,0,30.4,True,EPI-565,0.86
+OB-2025-027,Respiratory,RSV,Santa Clara,Community Event,2025-03-21,,Closed,7,0,0,44.9,False,EPI-240,0.66
+OB-2024-028,Foodborne,Norovirus,Tulare,Healthcare Facility,2024-06-03,2024-08-23,Closed,8,0,0,34.8,True,EPI-400,0.9
+OB-2025-029,Vector-borne,West Nile Virus,Sacramento,Prison/Jail,2025-06-23,,Closed,193,21,1,42.5,True,EPI-907,0.7
+OB-2025-030,Foodborne,Salmonella,Stanislaus,School,2025-01-22,2025-04-07,Under Investigation,42,9,0,37.7,True,EPI-179,0.83
+OB-2025-031,Respiratory,Pertussis,San Mateo,Restaurant,2025-06-14,2025-07-18,Under Investigation,170,24,0,36.4,True,EPI-537,0.98
+OB-2024-032,Respiratory,Pertussis,Kern,Prison/Jail,2024-09-02,,Closed,34,2,0,30.4,False,EPI-679,0.94
+OB-2025-033,Vaccine-preventable,Measles,San Diego,Healthcare Facility,2025-12-21,,Closed,82,6,0,43.6,True,EPI-697,0.64
+OB-2025-034,Respiratory,Pertussis,Los Angeles,Long-term Care,2025-01-10,,Active,35,3,0,48.1,True,EPI-313,0.63
+OB-2024-035,Foodborne,Hepatitis A,San Francisco,Restaurant,2024-10-18,2024-11-20,Closed,186,42,1,42.5,True,EPI-117,0.63
+OB-2024-036,Foodborne,Norovirus,San Diego,Long-term Care,2024-07-03,2024-09-08,Under Investigation,83,13,0,47.4,True,EPI-571,0.74
+OB-2026-037,Vaccine-preventable,Measles,Monterey,Childcare,2026-03-18,2026-05-18,Closed,84,5,0,18.7,False,EPI-199,0.62
+OB-2024-038,Vector-borne,West Nile Virus,San Diego,Community Event,2024-05-19,2024-08-09,Active,121,23,1,7.7,True,EPI-214,0.99
+OB-2025-039,Foodborne,Norovirus,Santa Barbara,Long-term Care,2025-10-19,2026-01-05,Closed,69,8,0,33.1,True,EPI-248,0.76
+OB-2025-040,Respiratory,Pertussis,San Joaquin,Community Event,2025-09-21,,Closed,161,8,0,9.1,True,EPI-574,0.84
+OB-2025-041,Foodborne,Hepatitis A,Contra Costa,Workplace,2025-04-19,2025-07-14,Closed,138,17,0,19.7,True,EPI-351,0.68
+OB-2025-042,Foodborne,Salmonella,Riverside,Community Event,2025-02-03,,Closed,11,0,0,11.0,True,EPI-181,1.0
+OB-2024-043,Foodborne,Hepatitis A,Orange,Community Event,2024-11-01,2025-01-13,Active,141,30,1,31.1,False,EPI-791,1.0
+OB-2026-044,Vaccine-preventable,Measles,San Mateo,Workplace,2026-04-23,2026-05-29,Closed,18,2,0,42.4,False,EPI-900,0.82
+OB-2026-045,Vector-borne,West Nile Virus,Riverside,School,2026-04-04,,Closed,126,9,0,48.6,False,EPI-791,0.81
+OB-2026-046,Foodborne,Norovirus,Stanislaus,Community Event,2026-01-29,2026-02-15,Closed,60,6,0,30.2,True,EPI-686,0.91
+OB-2025-047,Vaccine-preventable,Measles,Santa Clara,School,2025-07-25,2025-10-22,Under Investigation,32,2,0,38.0,True,EPI-264,0.66
+OB-2025-048,Foodborne,Norovirus,Sacramento,School,2025-02-18,2025-03-11,Under Investigation,47,10,0,40.6,True,EPI-994,0.82
+OB-2024-049,Respiratory,RSV,San Diego,Childcare,2024-09-26,2024-10-26,Closed,134,12,0,18.3,True,EPI-624,0.8
+OB-2026-050,Respiratory,Pertussis,Tulare,Childcare,2026-02-22,,Closed,54,7,0,9.9,True,EPI-638,0.95
+OB-2024-051,Vaccine-preventable,Measles,San Bernardino,Prison/Jail,2024-01-13,2024-03-20,Closed,179,17,1,49.2,True,EPI-279,0.93
+OB-2024-052,Respiratory,Pertussis,San Bernardino,Restaurant,2024-11-19,2025-01-20,Closed,22,1,0,35.9,True,EPI-177,0.74
+OB-2024-053,Respiratory,RSV,Tulare,Healthcare Facility,2024-05-17,2024-07-22,Closed,141,23,0,47.3,False,EPI-508,0.61
+OB-2024-054,Respiratory,RSV,Tulare,Long-term Care,2024-03-07,2024-06-02,Closed,61,5,0,28.7,True,EPI-380,0.72
+OB-2024-055,Vector-borne,West Nile Virus,Los Angeles,Community Event,2024-12-25,2025-02-26,Under Investigation,106,25,1,20.7,False,EPI-596,0.71
+OB-2024-056,Respiratory,COVID-19,Fresno,School,2024-09-08,2024-09-25,Closed,28,2,0,9.8,True,EPI-547,0.82
+OB-2024-057,Vector-borne,West Nile Virus,Santa Clara,Restaurant,2024-10-09,2024-12-20,Under Investigation,72,15,1,26.6,True,EPI-794,0.73
+OB-2025-058,Vector-borne,West Nile Virus,Santa Barbara,School,2025-02-15,2025-03-14,Closed,180,31,0,39.9,True,EPI-395,0.68
+OB-2024-059,Vector-borne,West Nile Virus,Riverside,Childcare,2024-04-29,2024-06-22,Closed,164,16,0,27.2,True,EPI-627,0.62
+OB-2024-060,Foodborne,Hepatitis A,Fresno,Long-term Care,2024-03-21,2024-06-01,Closed,22,2,0,32.1,True,EPI-966,0.61
+OB-2025-061,Vector-borne,West Nile Virus,Riverside,Healthcare Facility,2025-08-05,2025-08-20,Closed,199,14,0,20.6,True,EPI-710,0.98
+OB-2024-062,Foodborne,Salmonella,Kern,Childcare,2024-07-25,2024-08-31,Under Investigation,167,18,0,20.6,True,EPI-217,0.7
+OB-2024-063,Vaccine-preventable,Pertussis,Contra Costa,Restaurant,2024-10-09,,Closed,126,10,0,24.9,True,EPI-496,0.91
+OB-2025-064,Vector-borne,West Nile Virus,San Diego,Workplace,2025-05-04,2025-05-29,Closed,146,35,3,27.5,False,EPI-900,0.73
+OB-2025-065,Respiratory,RSV,Kern,Childcare,2025-03-04,,Closed,120,25,0,49.0,True,EPI-123,0.68
+OB-2025-066,Vaccine-preventable,Pertussis,Santa Barbara,Healthcare Facility,2025-09-13,,Closed,149,21,1,28.0,True,EPI-983,0.62
+OB-2024-067,Vaccine-preventable,Pertussis,Kern,Healthcare Facility,2024-09-17,,Under Investigation,161,18,1,27.2,True,EPI-625,0.94
+OB-2026-068,Vector-borne,West Nile Virus,Alameda,School,2026-02-19,2026-03-26,Closed,172,26,0,11.0,True,EPI-344,0.92
+OB-2024-069,Vector-borne,West Nile Virus,Ventura,Healthcare Facility,2024-06-12,2024-06-28,Closed,92,8,0,27.5,True,EPI-796,0.99
+OB-2024-070,Respiratory,RSV,Alameda,School,2024-05-01,,Active,15,3,0,6.7,True,EPI-669,0.64
+OB-2024-071,Vaccine-preventable,Measles,San Bernardino,Workplace,2024-08-09,2024-09-30,Closed,35,6,0,32.1,True,EPI-933,0.69
+OB-2025-072,Vaccine-preventable,Measles,San Mateo,School,2025-09-19,2025-11-25,Closed,15,3,0,43.5,False,EPI-826,0.69
+OB-2024-073,Vaccine-preventable,Measles,Santa Clara,Community Event,2024-02-16,2024-05-02,Under Investigation,78,8,0,10.1,False,EPI-890,0.96
+OB-2024-074,Foodborne,Hepatitis A,San Bernardino,Community Event,2024-03-07,2024-05-16,Under Investigation,73,10,0,39.4,True,EPI-772,0.7
+OB-2025-075,Respiratory,Influenza,Stanislaus,Prison/Jail,2025-01-04,2025-01-21,Closed,92,6,0,40.6,True,EPI-873,0.81

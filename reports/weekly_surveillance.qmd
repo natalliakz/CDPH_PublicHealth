@@ -1,0 +1,269 @@
+---
+title: "CDPH Weekly Surveillance Report"
+subtitle: "California Disease Surveillance Summary"
+author: "California Department of Public Health - Epidemiology Division"
+date: today
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+params:
+  start_date: "2026-01-01"
+  end_date: "2026-01-07"
+  county: "All"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(gt)
+library(scales)
+library(plotly)
+
+# Parameters
+START_DATE <- as.Date(params$start_date)
+END_DATE <- as.Date(params$end_date)
+COUNTY_FILTER <- params$county
+
+# Load data
+surveillance <- read_csv("../data/disease_surveillance.csv", show_col_types = FALSE) |>
+  mutate(report_date = as.Date(report_date))
+
+outbreaks <- read_csv("../data/outbreak_summary.csv", show_col_types = FALSE)
+
+# Filter to reporting period
+report_data <- surveillance |>
+  filter(report_date >= START_DATE, report_date <= END_DATE)
+
+if (COUNTY_FILTER != "All") {
+  report_data <- report_data |> filter(county == COUNTY_FILTER)
+}
+
+# Calculate summary metrics
+total_cases <- nrow(report_data)
+total_hosp <- sum(report_data$hospitalized)
+total_deaths <- sum(report_data$outcome == "Deceased")
+pct_lab_confirmed <- mean(report_data$lab_confirmed) * 100
+avg_days_report <- mean(report_data$days_to_report, na.rm = TRUE)
+```
+
+**DISCLAIMER:** This report contains synthetic data for demonstration purposes only.
+
+## Report Period
+
+| Parameter | Value |
+|-----------|-------|
+| **Start Date** | `r format(START_DATE, "%B %d, %Y")` |
+| **End Date** | `r format(END_DATE, "%B %d, %Y")` |
+| **Geographic Scope** | `r COUNTY_FILTER` |
+| **Generated** | `r format(Sys.time(), "%B %d, %Y at %H:%M")` |
+
+## Executive Summary
+
+```{r exec-summary, echo=FALSE, results='asis'}
+# Determine alert level
+if (total_deaths > 10 | total_hosp > 100) {
+  alert_level <- "HIGH"
+  alert_color <- "#DC143C"
+} else if (total_hosp > 50) {
+  alert_level <- "MODERATE"
+  alert_color <- "#FF8C00"
+} else {
+  alert_level <- "ROUTINE"
+  alert_color <- "#2E8B57"
+}
+
+cat(sprintf("### Alert Level: <span style='color: %s; font-weight: bold;'>%s</span>\n\n",
+            alert_color, alert_level))
+```
+
+| Metric | Value |
+|--------|-------|
+| **Total Cases** | `r format(total_cases, big.mark = ",")` |
+| **Hospitalizations** | `r format(total_hosp, big.mark = ",")` |
+| **Deaths** | `r total_deaths` |
+| **Lab Confirmation Rate** | `r sprintf("%.1f%%", pct_lab_confirmed)` |
+| **Avg Days to Report** | `r sprintf("%.1f", avg_days_report)` |
+
+## Cases by Condition
+
+```{r condition-table, echo=FALSE}
+condition_summary <- report_data |>
+  group_by(condition) |>
+  summarise(
+    Cases = n(),
+    Hospitalized = sum(hospitalized),
+    `Hosp Rate` = sprintf("%.1f%%", sum(hospitalized) / n() * 100),
+    Deaths = sum(outcome == "Deceased"),
+    `Outbreak-Associated` = sum(is_outbreak_associated),
+    .groups = "drop"
+  ) |>
+  arrange(desc(Cases))
+
+condition_summary |>
+  gt() |>
+  tab_header(
+    title = "Disease Condition Summary",
+    subtitle = sprintf("%s to %s", format(START_DATE, "%b %d"), format(END_DATE, "%b %d, %Y"))
+  ) |>
+  cols_align(align = "right", columns = -condition) |>
+  tab_options(table.font.size = px(12))
+```
+
+## Cases by County
+
+```{r county-plot, echo=FALSE, fig.width=10, fig.height=6}
+county_data <- report_data |>
+  group_by(county) |>
+  summarise(cases = n(), .groups = "drop") |>
+  arrange(desc(cases)) |>
+  head(15)
+
+p <- ggplot(county_data, aes(x = reorder(county, cases), y = cases, fill = cases)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_gradient(low = "#cce5ff", high = "#003366") +
+  labs(
+    title = "Top 15 Counties by Case Count",
+    x = NULL,
+    y = "Number of Cases"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+ggplotly(p)
+```
+
+## Cases by Age Group
+
+```{r age-table, echo=FALSE}
+age_summary <- report_data |>
+  group_by(age_group) |>
+  summarise(
+    Cases = n(),
+    `% of Total` = sprintf("%.1f%%", n() / nrow(report_data) * 100),
+    Hospitalized = sum(hospitalized),
+    `Hosp Rate` = sprintf("%.1f%%", sum(hospitalized) / n() * 100),
+    Deaths = sum(outcome == "Deceased"),
+    CFR = sprintf("%.2f%%", sum(outcome == "Deceased") / n() * 100),
+    .groups = "drop"
+  )
+
+age_summary |>
+  gt() |>
+  tab_header(title = "Age Group Analysis") |>
+  cols_align(align = "right", columns = -age_group) |>
+  tab_options(table.font.size = px(12))
+```
+
+## Daily Trend
+
+```{r trend-plot, echo=FALSE, fig.width=10, fig.height=4}
+daily_data <- report_data |>
+  group_by(report_date) |>
+  summarise(
+    cases = n(),
+    hospitalizations = sum(hospitalized),
+    .groups = "drop"
+  )
+
+p <- ggplot(daily_data, aes(x = report_date)) +
+  geom_line(aes(y = cases, color = "Cases"), linewidth = 1) +
+  geom_point(aes(y = cases, color = "Cases"), size = 2) +
+  geom_line(aes(y = hospitalizations * 5, color = "Hospitalizations (x5)"),
+            linewidth = 1, linetype = "dashed") +
+  scale_color_manual(values = c("Cases" = "#003366", "Hospitalizations (x5)" = "#DC143C")) +
+  labs(
+    title = "Daily Case and Hospitalization Trend",
+    x = "Date",
+    y = "Cases",
+    color = NULL
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+ggplotly(p)
+```
+
+## Data Quality Assessment
+
+```{r quality-table, echo=FALSE}
+quality_summary <- report_data |>
+  group_by(data_source) |>
+  summarise(
+    Records = n(),
+    `% of Total` = sprintf("%.1f%%", n() / nrow(report_data) * 100),
+    `Lab Confirmed` = sprintf("%.1f%%", mean(lab_confirmed) * 100),
+    `Avg Days to Report` = sprintf("%.1f", mean(days_to_report, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  arrange(desc(Records))
+
+quality_summary |>
+  gt() |>
+  tab_header(
+    title = "Data Source Quality Metrics",
+    subtitle = "Track SAS migration progress"
+  ) |>
+  cols_align(align = "right", columns = -data_source) |>
+  data_color(
+    columns = data_source,
+    fn = function(x) {
+      case_when(
+        x == "Legacy SAS" ~ "#ffcccc",
+        x == "Databricks" ~ "#ccffcc",
+        TRUE ~ "#ffffff"
+      )
+    }
+  )
+```
+
+## Active Outbreaks
+
+```{r outbreaks, echo=FALSE}
+active_outbreaks <- outbreaks |>
+  filter(status %in% c("Active", "Under Investigation")) |>
+  select(outbreak_id, outbreak_type, condition, county, setting, total_cases, hospitalizations, status) |>
+  arrange(desc(total_cases))
+
+if (nrow(active_outbreaks) > 0) {
+  active_outbreaks |>
+    gt() |>
+    tab_header(
+      title = "Active Outbreak Investigations",
+      subtitle = sprintf("%d active investigations", nrow(active_outbreaks))
+    ) |>
+    data_color(
+      columns = status,
+      colors = scales::col_factor(
+        palette = c("#FF8C00", "#DC143C"),
+        domain = c("Under Investigation", "Active")
+      )
+    )
+} else {
+  cat("No active outbreaks during this reporting period.")
+}
+```
+
+## Methodology Notes
+
+This report integrates data from multiple sources:
+
+- **Legacy SAS**: Historical data pipelines (migration in progress)
+- **Databricks**: Modern cloud data platform
+- **Direct Entry**: Manual case reports
+- **Lab Feed**: Automated laboratory results
+- **Hospital EHR**: Electronic health record extracts
+
+Data quality metrics help track the transition from legacy SAS workflows to modern Databricks-based pipelines.
+
+---
+
+*Report generated using Posit Quarto. For questions, contact the CDPH Epidemiology Division.*
+
+*This document is intended for public health officials only.*

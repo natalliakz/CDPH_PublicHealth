@@ -1,0 +1,7 @@
+shiny>=1.0.0
+shinywidgets>=0.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.15.0
+chatlas[bedrock-anthropic]>=0.16.0
+querychat>=0.5.0

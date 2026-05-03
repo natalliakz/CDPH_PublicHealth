@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Posit Connect
+rsconnect-python/
+.posit/
+
+# Rendered outputs (regenerate with quarto render)
+reports/*.html
+reports/*_files/

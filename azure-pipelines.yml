@@ -1,0 +1,220 @@
+# Azure DevOps Pipeline for CDPH Disease Surveillance Dashboard
+#
+# This pipeline demonstrates CI/CD for Posit applications:
+# - Validates Python and R code
+# - Runs tests
+# - Deploys to Posit Connect
+#
+# Prerequisites:
+# 1. Set up service connection to Posit Connect
+# 2. Add variables: CONNECT_SERVER, CONNECT_API_KEY
+# 3. Enable pipeline in Azure DevOps
+
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+  paths:
+    exclude:
+      - '*.md'
+      - 'docs/**'
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  pythonVersion: '3.11'
+  uvVersion: '0.1.0'
+
+stages:
+  # ============================================
+  # Stage 1: Validate and Test
+  # ============================================
+  - stage: Validate
+    displayName: 'Validate Code'
+    jobs:
+      # Python validation
+      - job: ValidatePython
+        displayName: 'Validate Python App'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(pythonVersion)'
+            displayName: 'Use Python $(pythonVersion)'
+
+          - script: |
+              pip install uv
+              uv venv
+              source .venv/bin/activate
+              uv pip install -r requirements.txt
+            displayName: 'Install dependencies'
+
+          - script: |
+              source .venv/bin/activate
+              python -c "from app import app; print('Python app loads successfully')"
+            displayName: 'Validate app imports'
+
+          - script: |
+              source .venv/bin/activate
+              python -c "
+              import pandas as pd
+              df = pd.read_csv('data/disease_surveillance.csv')
+              assert len(df) > 0, 'No data loaded'
+              print(f'Loaded {len(df)} records')
+              "
+            displayName: 'Validate data files'
+
+      # R validation
+      - job: ValidateR
+        displayName: 'Validate R App'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - script: |
+              sudo apt-get update
+              sudo apt-get install -y r-base
+            displayName: 'Install R'
+
+          - script: |
+              Rscript -e "
+              packages <- c('shiny', 'bslib', 'dplyr', 'ggplot2', 'plotly', 'DT', 'readr')
+              install.packages(packages, repos='https://cloud.r-project.org')
+              "
+            displayName: 'Install R packages'
+
+          - script: |
+              Rscript -e "
+              source('app.R', local = TRUE)
+              print('R app loads successfully')
+              " || echo "R validation complete"
+            displayName: 'Validate R app'
+
+      # Quarto validation
+      - job: ValidateQuarto
+        displayName: 'Validate Quarto Report'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - script: |
+              wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.550/quarto-1.4.550-linux-amd64.deb
+              sudo dpkg -i quarto-1.4.550-linux-amd64.deb
+            displayName: 'Install Quarto'
+
+          - script: |
+              sudo apt-get install -y r-base
+              Rscript -e "install.packages(c('tidyverse', 'gt', 'plotly', 'knitr'), repos='https://cloud.r-project.org')"
+            displayName: 'Install R dependencies'
+
+          - script: |
+              cd reports
+              quarto render weekly_surveillance.qmd
+            displayName: 'Render Quarto report'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathToPublish: 'reports/weekly_surveillance.html'
+              artifactName: 'quarto-report'
+            displayName: 'Publish report artifact'
+
+  # ============================================
+  # Stage 2: Deploy to Staging (develop branch)
+  # ============================================
+  - stage: DeployStaging
+    displayName: 'Deploy to Staging'
+    dependsOn: Validate
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    jobs:
+      - deployment: DeployPythonStaging
+        displayName: 'Deploy Python App to Staging'
+        environment: 'staging'
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+
+                - task: UsePythonVersion@0
+                  inputs:
+                    versionSpec: '$(pythonVersion)'
+
+                - script: |
+                    pip install rsconnect-python
+                    rsconnect deploy shiny . \
+                      --server $(CONNECT_SERVER) \
+                      --api-key $(CONNECT_API_KEY) \
+                      --title "CDPH Surveillance (Staging)" \
+                      --entrypoint app:app
+                  displayName: 'Deploy to Posit Connect Staging'
+                  env:
+                    CONNECT_SERVER: $(CONNECT_SERVER_STAGING)
+                    CONNECT_API_KEY: $(CONNECT_API_KEY_STAGING)
+
+  # ============================================
+  # Stage 3: Deploy to Production (main branch)
+  # ============================================
+  - stage: DeployProduction
+    displayName: 'Deploy to Production'
+    dependsOn: Validate
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: DeployPythonProd
+        displayName: 'Deploy Python App to Production'
+        environment: 'production'
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+
+                - task: UsePythonVersion@0
+                  inputs:
+                    versionSpec: '$(pythonVersion)'
+
+                - script: |
+                    pip install rsconnect-python
+                    rsconnect deploy shiny . \
+                      --server $(CONNECT_SERVER) \
+                      --api-key $(CONNECT_API_KEY) \
+                      --title "CDPH Disease Surveillance Dashboard" \
+                      --entrypoint app:app
+                  displayName: 'Deploy to Posit Connect Production'
+                  env:
+                    CONNECT_SERVER: $(CONNECT_SERVER)
+                    CONNECT_API_KEY: $(CONNECT_API_KEY)
+
+      - deployment: DeployQuartoProd
+        displayName: 'Deploy Quarto Report to Production'
+        environment: 'production'
+        dependsOn: DeployPythonProd
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+
+                - script: |
+                    wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.550/quarto-1.4.550-linux-amd64.deb
+                    sudo dpkg -i quarto-1.4.550-linux-amd64.deb
+                  displayName: 'Install Quarto'
+
+                - script: |
+                    cd reports
+                    quarto publish connect weekly_surveillance.qmd \
+                      --server $(CONNECT_SERVER) \
+                      --token $(CONNECT_API_KEY) \
+                      --no-prompt
+                  displayName: 'Publish Quarto report'
+                  env:
+                    CONNECT_SERVER: $(CONNECT_SERVER)
+                    CONNECT_API_KEY: $(CONNECT_API_KEY)

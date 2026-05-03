@@ -1,0 +1,201 @@
+county,indicator,value,unit,year,data_source,confidence_interval_low,confidence_interval_high
+Los Angeles,life_expectancy,72.53,years,2025,Vital Stats,65.27,79.78
+Los Angeles,infant_mortality_rate,8.12,"per 1,000",2025,Census,7.31,8.93
+Los Angeles,vaccination_rate_flu,29.37,percent,2025,Census,26.43,32.3
+Los Angeles,vaccination_rate_covid,57.2,percent,2025,CalHHS,51.48,62.92
+Los Angeles,obesity_rate,36.91,percent,2025,Census,33.22,40.6
+Los Angeles,diabetes_prevalence,15.48,percent,2025,Census,13.93,17.03
+Los Angeles,uninsured_rate,12.69,percent,2025,Census,11.42,13.96
+Los Angeles,poverty_rate,25.18,percent,2025,CalHHS,22.66,27.69
+Los Angeles,air_quality_index,134.75,AQI,2025,CalHHS,121.28,148.23
+Los Angeles,drinking_water_violations,7.44,count,2025,CalHHS,6.7,8.19
+San Diego,life_expectancy,77.38,years,2025,BRFSS,69.65,85.12
+San Diego,infant_mortality_rate,7.37,"per 1,000",2025,BRFSS,6.64,8.11
+San Diego,vaccination_rate_flu,41.15,percent,2025,BRFSS,37.03,45.26
+San Diego,vaccination_rate_covid,41.33,percent,2025,CalHHS,37.2,45.47
+San Diego,obesity_rate,35.9,percent,2025,CalHHS,32.31,39.49
+San Diego,diabetes_prevalence,17.68,percent,2025,BRFSS,15.91,19.44
+San Diego,uninsured_rate,12.57,percent,2025,CalHHS,11.31,13.83
+San Diego,poverty_rate,24.32,percent,2025,BRFSS,21.89,26.75
+San Diego,air_quality_index,140.15,AQI,2025,CalHHS,126.14,154.17
+San Diego,drinking_water_violations,12.0,count,2025,Vital Stats,10.8,13.2
+Orange,life_expectancy,73.46,years,2025,CalHHS,66.11,80.8
+Orange,infant_mortality_rate,7.37,"per 1,000",2025,CalHHS,6.63,8.1
+Orange,vaccination_rate_flu,37.84,percent,2025,Census,34.05,41.62
+Orange,vaccination_rate_covid,40.0,percent,2025,CalHHS,36.0,44.0
+Orange,obesity_rate,38.61,percent,2025,Census,34.75,42.47
+Orange,diabetes_prevalence,17.07,percent,2025,Census,15.36,18.78
+Orange,uninsured_rate,13.54,percent,2025,CalHHS,12.19,14.9
+Orange,poverty_rate,27.52,percent,2025,Census,24.77,30.27
+Orange,air_quality_index,119.14,AQI,2025,Census,107.22,131.05
+Orange,drinking_water_violations,12.0,count,2025,Census,10.8,13.2
+Riverside,life_expectancy,77.09,years,2025,BRFSS,69.38,84.8
+Riverside,infant_mortality_rate,9.22,"per 1,000",2025,Vital Stats,8.3,10.14
+Riverside,vaccination_rate_flu,30.7,percent,2025,Census,27.63,33.77
+Riverside,vaccination_rate_covid,41.05,percent,2025,BRFSS,36.95,45.16
+Riverside,obesity_rate,35.51,percent,2025,Census,31.95,39.06
+Riverside,diabetes_prevalence,16.05,percent,2025,Vital Stats,14.44,17.65
+Riverside,uninsured_rate,16.08,percent,2025,CalHHS,14.47,17.69
+Riverside,poverty_rate,23.34,percent,2025,CalHHS,21.0,25.67
+Riverside,air_quality_index,173.12,AQI,2025,Vital Stats,155.81,190.44
+Riverside,drinking_water_violations,12.0,count,2025,Census,10.8,13.2
+San Bernardino,life_expectancy,75.1,years,2025,BRFSS,67.59,82.61
+San Bernardino,infant_mortality_rate,7.63,"per 1,000",2025,BRFSS,6.87,8.4
+San Bernardino,vaccination_rate_flu,28.84,percent,2025,BRFSS,25.96,31.73
+San Bernardino,vaccination_rate_covid,56.54,percent,2025,Census,50.89,62.2
+San Bernardino,obesity_rate,40.92,percent,2025,BRFSS,36.83,45.02
+San Bernardino,diabetes_prevalence,15.17,percent,2025,Census,13.65,16.68
+San Bernardino,uninsured_rate,17.27,percent,2025,CalHHS,15.54,18.99
+San Bernardino,poverty_rate,25.14,percent,2025,Census,22.63,27.66
+San Bernardino,air_quality_index,155.91,AQI,2025,Census,140.31,171.5
+San Bernardino,drinking_water_violations,10.23,count,2025,Vital Stats,9.21,11.25
+Santa Clara,life_expectancy,77.14,years,2025,Census,69.42,84.85
+Santa Clara,infant_mortality_rate,5.7,"per 1,000",2025,BRFSS,5.13,6.27
+Santa Clara,vaccination_rate_flu,35.54,percent,2025,Vital Stats,31.99,39.1
+Santa Clara,vaccination_rate_covid,56.24,percent,2025,Vital Stats,50.62,61.87
+Santa Clara,obesity_rate,34.77,percent,2025,BRFSS,31.29,38.25
+Santa Clara,diabetes_prevalence,11.29,percent,2025,CalHHS,10.16,12.42
+Santa Clara,uninsured_rate,13.4,percent,2025,CalHHS,12.06,14.74
+Santa Clara,poverty_rate,23.25,percent,2025,Census,20.92,25.57
+Santa Clara,air_quality_index,110.87,AQI,2025,CalHHS,99.78,121.96
+Santa Clara,drinking_water_violations,7.35,count,2025,Census,6.62,8.09
+Alameda,life_expectancy,73.68,years,2025,Census,66.32,81.05
+Alameda,infant_mortality_rate,7.09,"per 1,000",2025,CalHHS,6.38,7.8
+Alameda,vaccination_rate_flu,24.0,percent,2025,CalHHS,21.6,26.4
+Alameda,vaccination_rate_covid,60.2,percent,2025,Census,54.18,66.22
+Alameda,obesity_rate,32.89,percent,2025,CalHHS,29.6,36.18
+Alameda,diabetes_prevalence,16.7,percent,2025,Census,15.03,18.37
+Alameda,uninsured_rate,16.64,percent,2025,Census,14.97,18.3
+Alameda,poverty_rate,28.42,percent,2025,Census,25.58,31.27
+Alameda,air_quality_index,166.03,AQI,2025,BRFSS,149.43,182.63
+Alameda,drinking_water_violations,12.0,count,2025,BRFSS,10.8,13.2
+Sacramento,life_expectancy,76.37,years,2025,Vital Stats,68.73,84.0
+Sacramento,infant_mortality_rate,6.93,"per 1,000",2025,Vital Stats,6.24,7.63
+Sacramento,vaccination_rate_flu,38.0,percent,2025,Census,34.2,41.8
+Sacramento,vaccination_rate_covid,40.0,percent,2025,Vital Stats,36.0,44.0
+Sacramento,obesity_rate,35.63,percent,2025,BRFSS,32.06,39.19
+Sacramento,diabetes_prevalence,13.09,percent,2025,Vital Stats,11.78,14.4
+Sacramento,uninsured_rate,11.76,percent,2025,Vital Stats,10.58,12.93
+Sacramento,poverty_rate,28.4,percent,2025,Census,25.56,31.23
+Sacramento,air_quality_index,125.02,AQI,2025,BRFSS,112.52,137.52
+Sacramento,drinking_water_violations,9.05,count,2025,Vital Stats,8.15,9.96
+Contra Costa,life_expectancy,73.43,years,2025,Vital Stats,66.09,80.78
+Contra Costa,infant_mortality_rate,8.21,"per 1,000",2025,Census,7.39,9.03
+Contra Costa,vaccination_rate_flu,40.28,percent,2025,CalHHS,36.25,44.3
+Contra Costa,vaccination_rate_covid,61.57,percent,2025,BRFSS,55.41,67.72
+Contra Costa,obesity_rate,40.83,percent,2025,Vital Stats,36.74,44.91
+Contra Costa,diabetes_prevalence,12.98,percent,2025,Census,11.68,14.27
+Contra Costa,uninsured_rate,16.41,percent,2025,BRFSS,14.77,18.05
+Contra Costa,poverty_rate,22.26,percent,2025,Vital Stats,20.04,24.49
+Contra Costa,air_quality_index,137.51,AQI,2025,Vital Stats,123.76,151.26
+Contra Costa,drinking_water_violations,11.26,count,2025,BRFSS,10.13,12.38
+Fresno,life_expectancy,73.41,years,2025,BRFSS,66.07,80.75
+Fresno,infant_mortality_rate,8.69,"per 1,000",2025,Vital Stats,7.82,9.56
+Fresno,vaccination_rate_flu,24.0,percent,2025,Census,21.6,26.4
+Fresno,vaccination_rate_covid,43.64,percent,2025,CalHHS,39.28,48.01
+Fresno,obesity_rate,37.16,percent,2025,Census,33.44,40.88
+Fresno,diabetes_prevalence,13.65,percent,2025,Vital Stats,12.29,15.02
+Fresno,uninsured_rate,18.0,percent,2025,Vital Stats,16.2,19.8
+Fresno,poverty_rate,30.0,percent,2025,BRFSS,27.0,33.0
+Fresno,air_quality_index,180.0,AQI,2025,Vital Stats,162.0,198.0
+Fresno,drinking_water_violations,10.87,count,2025,Vital Stats,9.78,11.95
+San Francisco,life_expectancy,75.1,years,2025,Census,67.59,82.61
+San Francisco,infant_mortality_rate,5.8,"per 1,000",2025,CalHHS,5.22,6.38
+San Francisco,vaccination_rate_flu,40.73,percent,2025,CalHHS,36.66,44.8
+San Francisco,vaccination_rate_covid,55.36,percent,2025,BRFSS,49.82,60.89
+San Francisco,obesity_rate,40.7,percent,2025,Vital Stats,36.63,44.77
+San Francisco,diabetes_prevalence,13.29,percent,2025,CalHHS,11.96,14.62
+San Francisco,uninsured_rate,12.4,percent,2025,Census,11.16,13.64
+San Francisco,poverty_rate,19.95,percent,2025,Census,17.96,21.95
+San Francisco,air_quality_index,119.4,AQI,2025,Census,107.46,131.34
+San Francisco,drinking_water_violations,8.17,count,2025,BRFSS,7.35,8.99
+Ventura,life_expectancy,73.32,years,2025,BRFSS,65.99,80.65
+Ventura,infant_mortality_rate,7.61,"per 1,000",2025,Census,6.85,8.37
+Ventura,vaccination_rate_flu,27.53,percent,2025,Vital Stats,24.77,30.28
+Ventura,vaccination_rate_covid,41.28,percent,2025,Census,37.16,45.41
+Ventura,obesity_rate,35.55,percent,2025,Vital Stats,31.99,39.1
+Ventura,diabetes_prevalence,14.0,percent,2025,CalHHS,12.6,15.4
+Ventura,uninsured_rate,15.02,percent,2025,CalHHS,13.52,16.53
+Ventura,poverty_rate,24.17,percent,2025,Vital Stats,21.75,26.59
+Ventura,air_quality_index,145.83,AQI,2025,Vital Stats,131.25,160.41
+Ventura,drinking_water_violations,8.39,count,2025,Census,7.55,9.23
+San Mateo,life_expectancy,76.86,years,2025,CalHHS,69.18,84.55
+San Mateo,infant_mortality_rate,6.1,"per 1,000",2025,Census,5.49,6.71
+San Mateo,vaccination_rate_flu,31.38,percent,2025,BRFSS,28.25,34.52
+San Mateo,vaccination_rate_covid,55.06,percent,2025,Census,49.55,60.57
+San Mateo,obesity_rate,31.2,percent,2025,BRFSS,28.08,34.32
+San Mateo,diabetes_prevalence,11.25,percent,2025,CalHHS,10.13,12.38
+San Mateo,uninsured_rate,12.76,percent,2025,Census,11.48,14.04
+San Mateo,poverty_rate,18.28,percent,2025,BRFSS,16.45,20.1
+San Mateo,air_quality_index,119.92,AQI,2025,Census,107.93,131.91
+San Mateo,drinking_water_violations,8.61,count,2025,BRFSS,7.75,9.47
+Kern,life_expectancy,71.18,years,2025,Vital Stats,64.06,78.3
+Kern,infant_mortality_rate,9.57,"per 1,000",2025,Vital Stats,8.61,10.53
+Kern,vaccination_rate_flu,24.0,percent,2025,Census,21.6,26.4
+Kern,vaccination_rate_covid,48.79,percent,2025,Census,43.91,53.67
+Kern,obesity_rate,48.0,percent,2025,Vital Stats,43.2,52.8
+Kern,diabetes_prevalence,15.29,percent,2025,CalHHS,13.76,16.82
+Kern,uninsured_rate,15.6,percent,2025,BRFSS,14.04,17.16
+Kern,poverty_rate,26.84,percent,2025,Census,24.16,29.53
+Kern,air_quality_index,173.36,AQI,2025,CalHHS,156.03,190.7
+Kern,drinking_water_violations,12.0,count,2025,CalHHS,10.8,13.2
+San Joaquin,life_expectancy,77.66,years,2025,Vital Stats,69.9,85.43
+San Joaquin,infant_mortality_rate,6.45,"per 1,000",2025,Census,5.8,7.09
+San Joaquin,vaccination_rate_flu,24.0,percent,2025,CalHHS,21.6,26.4
+San Joaquin,vaccination_rate_covid,42.39,percent,2025,Vital Stats,38.15,46.63
+San Joaquin,obesity_rate,32.52,percent,2025,BRFSS,29.27,35.78
+San Joaquin,diabetes_prevalence,12.62,percent,2025,Vital Stats,11.36,13.89
+San Joaquin,uninsured_rate,11.84,percent,2025,Vital Stats,10.65,13.02
+San Joaquin,poverty_rate,29.21,percent,2025,CalHHS,26.29,32.13
+San Joaquin,air_quality_index,132.5,AQI,2025,CalHHS,119.25,145.75
+San Joaquin,drinking_water_violations,10.03,count,2025,CalHHS,9.03,11.04
+Stanislaus,life_expectancy,76.67,years,2025,Vital Stats,69.0,84.33
+Stanislaus,infant_mortality_rate,6.79,"per 1,000",2025,Census,6.11,7.47
+Stanislaus,vaccination_rate_flu,37.7,percent,2025,CalHHS,33.93,41.47
+Stanislaus,vaccination_rate_covid,54.82,percent,2025,BRFSS,49.34,60.3
+Stanislaus,obesity_rate,42.88,percent,2025,BRFSS,38.59,47.17
+Stanislaus,diabetes_prevalence,17.88,percent,2025,BRFSS,16.09,19.66
+Stanislaus,uninsured_rate,18.0,percent,2025,CalHHS,16.2,19.8
+Stanislaus,poverty_rate,19.03,percent,2025,CalHHS,17.12,20.93
+Stanislaus,air_quality_index,157.62,AQI,2025,BRFSS,141.86,173.39
+Stanislaus,drinking_water_violations,10.94,count,2025,CalHHS,9.84,12.03
+Sonoma,life_expectancy,74.73,years,2025,BRFSS,67.26,82.2
+Sonoma,infant_mortality_rate,6.87,"per 1,000",2025,Vital Stats,6.18,7.56
+Sonoma,vaccination_rate_flu,39.71,percent,2025,CalHHS,35.74,43.69
+Sonoma,vaccination_rate_covid,41.28,percent,2025,BRFSS,37.15,45.41
+Sonoma,obesity_rate,40.69,percent,2025,BRFSS,36.62,44.76
+Sonoma,diabetes_prevalence,12.32,percent,2025,Vital Stats,11.09,13.55
+Sonoma,uninsured_rate,15.86,percent,2025,BRFSS,14.28,17.45
+Sonoma,poverty_rate,25.51,percent,2025,Vital Stats,22.96,28.06
+Sonoma,air_quality_index,163.46,AQI,2025,Census,147.12,179.81
+Sonoma,drinking_water_violations,11.09,count,2025,Census,9.98,12.2
+Tulare,life_expectancy,70.92,years,2025,CalHHS,63.83,78.01
+Tulare,infant_mortality_rate,9.6,"per 1,000",2025,Vital Stats,8.64,10.56
+Tulare,vaccination_rate_flu,24.88,percent,2025,CalHHS,22.39,27.37
+Tulare,vaccination_rate_covid,40.0,percent,2025,Census,36.0,44.0
+Tulare,obesity_rate,48.0,percent,2025,Vital Stats,43.2,52.8
+Tulare,diabetes_prevalence,18.0,percent,2025,Vital Stats,16.2,19.8
+Tulare,uninsured_rate,15.73,percent,2025,Census,14.16,17.3
+Tulare,poverty_rate,30.0,percent,2025,CalHHS,27.0,33.0
+Tulare,air_quality_index,180.0,AQI,2025,Vital Stats,162.0,198.0
+Tulare,drinking_water_violations,10.29,count,2025,Vital Stats,9.26,11.32
+Santa Barbara,life_expectancy,75.17,years,2025,Vital Stats,67.65,82.69
+Santa Barbara,infant_mortality_rate,9.28,"per 1,000",2025,BRFSS,8.35,10.21
+Santa Barbara,vaccination_rate_flu,29.44,percent,2025,Vital Stats,26.5,32.39
+Santa Barbara,vaccination_rate_covid,45.62,percent,2025,CalHHS,41.05,50.18
+Santa Barbara,obesity_rate,46.16,percent,2025,Census,41.54,50.78
+Santa Barbara,diabetes_prevalence,13.65,percent,2025,BRFSS,12.28,15.01
+Santa Barbara,uninsured_rate,17.59,percent,2025,Census,15.83,19.35
+Santa Barbara,poverty_rate,20.07,percent,2025,CalHHS,18.07,22.08
+Santa Barbara,air_quality_index,180.0,AQI,2025,Census,162.0,198.0
+Santa Barbara,drinking_water_violations,7.71,count,2025,BRFSS,6.94,8.48
+Monterey,life_expectancy,74.39,years,2025,CalHHS,66.96,81.83
+Monterey,infant_mortality_rate,8.47,"per 1,000",2025,BRFSS,7.63,9.32
+Monterey,vaccination_rate_flu,40.15,percent,2025,BRFSS,36.13,44.16
+Monterey,vaccination_rate_covid,46.01,percent,2025,Census,41.41,50.61
+Monterey,obesity_rate,39.99,percent,2025,CalHHS,35.99,43.98
+Monterey,diabetes_prevalence,17.03,percent,2025,Census,15.33,18.74
+Monterey,uninsured_rate,14.21,percent,2025,BRFSS,12.79,15.63
+Monterey,poverty_rate,19.19,percent,2025,BRFSS,17.27,21.11
+Monterey,air_quality_index,132.22,AQI,2025,BRFSS,119.0,145.45
+Monterey,drinking_water_violations,11.0,count,2025,BRFSS,9.9,12.1
