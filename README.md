@@ -57,12 +57,15 @@ Positron and Posit Connect support enterprise version control workflows:
 git clone <repo-url>
 cd CDPH_PublicHealth
 
-# Create virtual environment with uv
+# Option 1: Using uv (if available)
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install dependencies
+source .venv/bin/activate
 uv pip install -r requirements.txt
+
+# Option 2: Using pip (Posit Workbench)
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
 # Run the app
 shiny run app.py --port 8050
